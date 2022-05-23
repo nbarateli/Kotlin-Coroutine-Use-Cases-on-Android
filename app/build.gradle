@@ -5,7 +5,6 @@ apply plugin: 'kotlin-parcelize'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
 
     defaultConfig {
         applicationId "com.lukaslechner.coroutineusecasesonandroid"
@@ -36,6 +35,7 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+    namespace 'com.lukaslechner.coroutineusecasesonandroid'
 
 }
 
