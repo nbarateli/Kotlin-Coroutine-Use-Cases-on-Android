@@ -21,13 +21,13 @@ fun mockApi(): RxMockApi = createMockApi(
             "http://localhost/recent-android-versions",
             Gson().toJson(mockAndroidVersions),
             200,
-            1500
+            500
         )
         .mock(
             "http://localhost/android-version-features/29",
             Gson().toJson(mockVersionFeaturesAndroid10),
             200,
-            1500
+            500
         )
 )
 
