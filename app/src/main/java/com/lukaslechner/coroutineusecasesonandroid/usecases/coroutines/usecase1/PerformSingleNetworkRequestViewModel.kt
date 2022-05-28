@@ -20,12 +20,15 @@ class PerformSingleNetworkRequestViewModel(
                     response: Response<List<AndroidVersion>>
                 ) {
                     if (response.isSuccessful) {
+                        uiState.postValue(UiState.Success(response.body() ?: emptyList()))
+                    } else {
+                        uiState.postValue(UiState.Error("NETWORK ERROR"))
 
                     }
                 }
 
                 override fun onFailure(call: Call<List<AndroidVersion>>, t: Throwable) {
-                    uiState.postValue(UiState.Error("Unexpected"))
+                    uiState.postValue(UiState.Error(t.message ?: "Unexpected"))
                 }
 
             }
