@@ -16,9 +16,9 @@ class Perform2SequentialNetworkRequestsViewModel(
         viewModelScope.launch {
             try {
                 mockApi.getRecentAndroidVersions()
-                    .lastOrNull()?.apiLevel
-                    ?.let { mockApi.getAndroidVersionFeatures(it) }
-                    ?.let(uiState::postSuccess)
+                    .lastOrNull()!!.apiLevel
+                    .let { mockApi.getAndroidVersionFeatures(it) }
+                    .let(uiState::postSuccess)
             } catch (e: Exception) {
                 Timber.e(e)
                 uiState.postError(e)
